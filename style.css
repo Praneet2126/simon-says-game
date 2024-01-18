@@ -60,6 +60,15 @@ body {
         height: 100px;
         width: 100px;
     }
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    h2 {
+        font-size: 15px;
+    }
 }
 
 .start-button {
