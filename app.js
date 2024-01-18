@@ -6,6 +6,7 @@ let btns = ["red","yellow","green","purple"];
 let started = false;
 let level = 0;
 let highestScore = 0;
+let startBtn = document.querySelector('.start-button');
 
 let h2 = document.querySelector('h2');
 
@@ -17,6 +18,16 @@ document.addEventListener('keypress',() => {
     }
 
 });
+startBtn.addEventListener('click',() => {
+    startBtn.style.display = "none";
+    if(started == false) {
+        console.log('game started');
+        started = true;
+        levelUp();
+    }
+
+});
+
 
 function gameFlash(btn) {
     btn.classList.add('gameFlash');
@@ -59,7 +70,7 @@ function checkAns(idx) {
             highestScore = level;
         }
 
-        h2.innerHTML = `Game Over! Your score was <b>${level}. Highest Score = ${highestScore}</b>. <br> <center> Press any key to start again <center>` ;
+        h2.innerHTML = `Game Over! Your score was <b>${level}. Highest Score = ${highestScore}</b>. <br> <center> Press the button or any key to start the game <center>` ;
         document.querySelector('body').style.backgroundColor = 'red';
         setTimeout(()=> {
             document.querySelector('body').style.backgroundColor = 'white';
@@ -88,6 +99,7 @@ for(btn of allBtns) {
 }
 
 function reset() {
+    startBtn.removeAttribute("style");
     started = false;
     gameSeq = [];
     userSeq = [];
